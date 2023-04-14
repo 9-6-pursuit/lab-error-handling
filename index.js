@@ -19,10 +19,12 @@ const exampleProducts = [
   - The `cart` array is empty.
 */
 function getCartTotal(cart) {
+  if (!cart.length) {
+    throw "The cart is empty, or there is no cart.";
+  }
   let result = 0;
   for (let product of cart) {
     result += product.priceInCents;
-    
   }
   return result;
 }
@@ -37,6 +39,9 @@ function getCartTotal(cart) {
   - Any of the products in the `products` array does not have a `priceInCents` key.
 */
 function filterProductsByPriceRange(products, min, max) {
+  if (!products || !min || !max) {
+    throw "Error";
+  }
   const result = [];
   for (let product of products) {
     if (product.priceInCents >= min && product.priceInCents <= max) {
