@@ -22,6 +22,7 @@ function getCartTotal(cart) {
   let result = 0;
   for (let product of cart) {
     result += product.priceInCents;
+    
   }
   return result;
 }
